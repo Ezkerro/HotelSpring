@@ -12,7 +12,9 @@ public class Room {
 	}
 	
 	public Room(int number, String type, String description){
-		
+		this.number = number;
+		this.type = type;
+		this.description = description;
 	}
 
 	/**
