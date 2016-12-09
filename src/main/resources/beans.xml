@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+
+	<bean id="guest1" class="org.sistema.spring.hotel.models.Guest">
+		<property name="name" value="David" />
+		<property name="dni" value="44647844Z" />
+	</bean>
+	<bean id="guest2" class="org.sistema.spring.hotel.models.Guest">
+		<property name="name" value="Aritz" />
+		<property name="dni" value="44647844A" />
+	</bean>
+	<bean id="guest3" class="org.sistema.spring.hotel.models.Guest">
+		<property name="name" value="Sergio" />
+		<property name="dni" value="44647844S" />
+	</bean>
+	<bean id="room1" class="org.sistema.spring.hotel.models.Room">
+		<property name="number" value="1" />
+		<property name="type" value="Normal" />
+		<property name="description" value="Normal" />
+		
+			<property name="guest" ref="guest1" />
+	</bean>
+	<bean id="room2" class="org.sistema.spring.hotel.models.Room">
+		<property name="number" value="2" />
+		<property name="type" value="Double" />
+		<property name="description" value="Double" />
+		
+			<property name="guest" ref="guest2" />
+	</bean>
+	<bean id="room3" class="org.sistema.spring.hotel.models.Room">
+		<property name="number" value="3" />
+		<property name="type" value="Triple" />
+		<property name="description" value="Triple" />
+		<property name="guest" ref="guest3" />
+	</bean>
+	<bean id="room4" class="org.sistema.spring.hotel.models.Room">
+		<property name="number" value="4" />
+		<property name="type" value="Normal" />
+		<property name="description" value="Normal" />
+		
+			<property name="guest" value="#{null}" />
+	</bean>
+	<bean id="room5" class="org.sistema.spring.hotel.models.Room">
+		<property name="number" value="5" />
+		<property name="type" value="Double" />
+		<property name="description" value="Double" />
+		
+			<property name="guest" value="#{null}" />
+	</bean>
+	<bean id="hotel1" class="org.sistema.spring.hotel.models.Hotel">
+		<property name="name" value="Hotel Tres Reyes" />
+		<property name="rooms">
+			<set>
+				<ref bean="room1" />
+				<ref bean="room2" />
+				<ref bean="room3" />
+				<ref bean="room4" />
+				<ref bean="room5" />
+			</set>
+		</property>
+	</bean>
+</beans>
